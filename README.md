@@ -1,27 +1,24 @@
-# MyAotJitApp
+# Angular2 JIT and AOT compilation POC.
+This is a small experiment with Angular 2 compilation process for our project.
+This is a angular-cli generated project. This project is derived from one of the sample posted on this discussion.
+This is a very interesting discussion on using AOT+JIT together but issue seems to be still open:
+https://github.com/angular/angular/issues/15510
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
 
-## Development server
+## Summary of Issue:
+When we try to build the project with AOT configuration the metadata associated with the dynamic module/component is stripped off. This makes the module unidentifiable. We can find the threads on similar discussion:
+https://github.com/angular/angular/issues/16033
+https://github.com/angular/angular-cli/issues/6866
+https://github.com/angular/angular/issues/17595
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##Proposed workaround
+The idea is to preserve the metadata/decorator associated with any of the angular module/component/service. This can be achieved through creating custom decorators as demonstrated in the the current POC.
+ 
+## Things to try:
+1. Create a component that load external style sheet.
+2. Discover external modules which does not have custom metadata/decorators at runtime.
 
-## Code scaffolding
+## How to compile and test:
+- ``npm run aot``
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Hope this helps someone in need!
