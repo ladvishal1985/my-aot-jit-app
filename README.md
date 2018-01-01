@@ -11,7 +11,7 @@ https://github.com/angular/angular/issues/16033
 https://github.com/angular/angular-cli/issues/6866
 https://github.com/angular/angular/issues/17595
 
-##Proposed workaround
+## Proposed workaround
 The idea is to preserve the metadata/decorator associated with any of the angular module/component/service. This can be achieved through creating custom decorators as demonstrated in the the current POC.
  
 ## Things to try:
