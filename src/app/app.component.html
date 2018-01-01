@@ -1,0 +1,10 @@
+<h1>App Component</h1>
+
+<some-component
+        [color]="'blue'"
+        [text]="'Created with AOT'">
+</some-component>
+
+<dynamic-ui
+        [templateContent]="'<some-component [color]=&quot;\'red\'&quot; [text]=&quot;\'Created with JIT\'&quot; (change)=onChangeEvent($event)></some-component>'">
+</dynamic-ui>
